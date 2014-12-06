@@ -11,10 +11,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Adds the new google “Are you robot?” recaptcha to wp-login page.
 
 == Description ==
-Use this plugin to add the new google “Are you robot?” recaptcha to wp-login page.
-
-
-Follow us :
+Use this plugin to add the new google “Are you robot?” recaptcha to wp-login page. <br />
+Get the public key and private key from  https://www.google.com/recaptcha/admin and enter the keys in plugin settings page.
+<br />
+Plugin page: <a href="http://facebook.com/idiotinside/">facebook</a> <br />
+<br />
+Follow us :<br />
 <a href="http://facebook.com/idiotinside/">facebook</a> <br />
 <a href="https://twitter.com/IdiotInside_">twitter</a> <br />
 <a href="https://plus.google.com/106331226863845057962">google+</a><br />
@@ -37,7 +39,8 @@ See plugin settings page for more instruction.
 == Screenshots ==
 
 1. screenshot.png 
- 
+2. screenshot-2.png
+
 
 == Changelog ==
 
