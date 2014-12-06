@@ -1,4 +1,4 @@
-=== Are you robot? google recaptcha for wordpress ===
+=== Are you robot google recaptcha for wordpress ===
 Contributors: sureshdsk
 Donate link: http://www.idiotinside.com/contribution/
 Tags: recaptcha,google no captcha,are you robot,wp-login,login screen ,custom wplogin page
@@ -31,7 +31,6 @@ Follow us :<br />
 
 
 == Frequently Asked Questions ==
-
 <b> How to use? </b>
 Register your site in google recaptcha and enter private key and public key in the plugin settings page. <br />
 See plugin settings page for more instruction.
