@@ -39,7 +39,7 @@ See plugin settings page for more instruction.
 == Screenshots ==
 
 1. screenshot.png 
-2. screenshot-2.png
+2. screenshot2.png
 
 
 == Changelog ==
