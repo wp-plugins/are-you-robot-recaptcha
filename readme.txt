@@ -20,7 +20,7 @@ Get the public key and private key from  https://www.google.com/recaptcha/admin 
 <br />
 Plugin page: http://www.idiotinside.com/are-you-robot-google-recaptcha-for-wordpress/ <br />
 <br />
-`Follow us :`<br />
+`Follow us :`
 <a href="http://facebook.com/idiotinside/">facebook</a> <br />
 <a href="https://twitter.com/IdiotInside_">twitter</a> <br />
 <a href="https://plus.google.com/106331226863845057962">google+</a><br />
