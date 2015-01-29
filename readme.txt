@@ -8,7 +8,7 @@ Stable tag: 4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Adds the new google “Are you robot?” recaptcha to wp-login page, registration page, comment forms and buddypress registration page.
+Adds the new google “Are you robot?” recaptcha to wp-login page, registration page, comment forms, buddypress registration page and contact form 7.
 
 == Description ==
 
@@ -27,7 +27,9 @@ Add the new google “Are you robot?” recaptcha to the following:
 = We are here =
 
 [https://facebook.com/idiotinside/](https://facebook.com/idiotinside/)
+
 [https://twitter.com/IdiotInside_](https://twitter.com/IdiotInside_)
+
 [https://plus.google.com/106331226863845057962](https://plus.google.com/106331226863845057962)
 
 == Installation ==

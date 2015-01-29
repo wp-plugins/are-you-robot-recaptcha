@@ -3,7 +3,7 @@
 Plugin Name: Are you robot? google recaptcha for wordpress
 Plugin URI: http://www.idiotinside.com
 Description: Adds the new google recaptcha to wp-login page, registration page, comments section and buddy press registration page.
-Version: 2.0
+Version: 2.1
 Author: Suresh Kumar
 Author URI: http://profiles.wordpress.org/sureshdsk/
 */
