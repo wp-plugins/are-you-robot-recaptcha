@@ -387,4 +387,62 @@ if($nocaptcha_opts["buddypress"]=="1") {
     add_action('bp_signup_validate', 'bp_validate_recaptcha');
 }
 
+/* cf7 */
+
+function is_cf7_active() {
+    return in_array(
+        'contact-form-7/wp-contact-form-7.php',
+        apply_filters(
+            'active_plugins',
+            get_option(
+                'active_plugins' ) ) );
+}
+
+if(is_cf7_active()) {
+    add_action('wpcf7_init', 'add_shortcode_no_gcaptcha');
+    add_filter('wpcf7_validate_no_captcha', 'nocap_validation_filter_func', 10, 2);
+}
+function add_shortcode_no_gcaptcha() {
+    wpcf7_add_shortcode( 'no_captcha', 'shortcode_no_gcaptcha_handler' ); // "clock" is the type of the form-tag
+}
+
+function shortcode_no_gcaptcha_handler( $tag ) {
+
+    $opt = get_option('nocaptcha_login_recaptcha_options');
+
+    $captcha_code = '';
+    if ('' != $opt['site_key'] && '' != $opt['secret_key']) {
+        $captcha_code .= '<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+			<div class="g-recaptcha" data-sitekey="'.htmlentities($opt['site_key']).'"></div>
+<span class="wpcf7-form-control-wrap no_recaptcha"></span>';
+    }else{
+        $captcha_code .= '<div style="color:#FF7425;">Please configure private key & public key in settings</div>';
+    }
+    return $captcha_code;
+
+}
+
+function nocap_validation_filter_func( $result, $tag ) {
+
+    $opt = get_option('nocaptcha_login_recaptcha_options');
+    $parameters = array(
+        'secret' => $opt['secret_key'],
+        'response' => nocaptcha_login_recaptcha_get_post('g-recaptcha-response'),
+        'remoteip' => nocaptcha_login_recaptcha_get_ip()
+    );
+    $url = 'https://www.google.com/recaptcha/api/siteverify?' . http_build_query($parameters);
+
+    $response = nocaptcha_login_recaptcha_open_url($url);
+    $json_response = json_decode($response, true);
+
+    if (!empty($opt['secret_key']) && isset($json_response['success']) && true !== $json_response['success']) {
+        $result['valid'] = false;
+        $result['reason']['no_recaptcha'] = "Recaptcha verification failed..";
+    }
+
+    return $result;
+}
+
+
+
 ?>
