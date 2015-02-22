@@ -437,7 +437,7 @@ function nocap_validation_filter_func( $result,$tag) {
     $json_response = json_decode($response, true);
     if (empty($_POST['g-recaptcha-response']) && $json_response['success'] !== "true") {
         $result['valid'] = false;
-        echo $result['reason']['no_recaptcha'] = "Recaptcha verification failed..";
+        $result['reason']['no_recaptcha'] = "Recaptcha verification failed..";
     }
 
     return $result;
