@@ -3,7 +3,7 @@
 Plugin Name: Are you robot? google recaptcha for wordpress
 Plugin URI: http://www.idiotinside.com
 Description: Adds the new google recaptcha to wp-login page, registration page, comments section and buddy press registration page.
-Version: 2.2
+Version: 2.1
 Author: Suresh Kumar
 Author URI: http://profiles.wordpress.org/sureshdsk/
 */
@@ -400,11 +400,10 @@ function is_cf7_active() {
 
 if(is_cf7_active()) {
     add_action('wpcf7_init', 'add_shortcode_no_gcaptcha');
-    add_filter('wpcf7_validate', 'nocap_validation_filter_func',10,2);
-
+    add_filter('wpcf7_validate_no_captcha', 'nocap_validation_filter_func', 10, 2);
 }
 function add_shortcode_no_gcaptcha() {
-    wpcf7_add_shortcode( 'no_captcha', 'shortcode_no_gcaptcha_handler',true ); // "clock" is the type of the form-tag
+    wpcf7_add_shortcode( 'no_captcha', 'shortcode_no_gcaptcha_handler' ); // "clock" is the type of the form-tag
 }
 
 function shortcode_no_gcaptcha_handler( $tag ) {
@@ -423,19 +422,20 @@ function shortcode_no_gcaptcha_handler( $tag ) {
 
 }
 
-function nocap_validation_filter_func( $result,$tag) {
+function nocap_validation_filter_func( $result, $tag ) {
 
     $opt = get_option('nocaptcha_login_recaptcha_options');
     $parameters = array(
         'secret' => $opt['secret_key'],
-        'response' => $_POST['g-recaptcha-response'],
+        'response' => nocaptcha_login_recaptcha_get_post('g-recaptcha-response'),
         'remoteip' => nocaptcha_login_recaptcha_get_ip()
     );
     $url = 'https://www.google.com/recaptcha/api/siteverify?' . http_build_query($parameters);
 
     $response = nocaptcha_login_recaptcha_open_url($url);
     $json_response = json_decode($response, true);
-    if (empty($_POST['g-recaptcha-response']) && $json_response['success'] !== "true") {
+
+    if (!empty($opt['secret_key']) && isset($json_response['success']) && true !== $json_response['success']) {
         $result['valid'] = false;
         $result['reason']['no_recaptcha'] = "Recaptcha verification failed..";
     }
