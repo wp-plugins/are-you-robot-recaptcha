@@ -51,6 +51,9 @@ Add the new google “Are you robot?” recaptcha to the following:
 
 == Changelog ==
 
+= 2.2 =
+* contact form 7 bug fix
+
 = 2.1 =
 * Added support for contact form 7
 
@@ -66,5 +69,5 @@ Added ability to add captcha on
 
 == Upgrade Notice ==
 
-= 2.1 =
-Upgrade for contact form 7 support
+= 2.2 =
+Upgrade immediately for contact form 7 support
