@@ -416,7 +416,7 @@ function shortcode_no_gcaptcha_handler( $tag ) {
     $captcha_code = '';
     if ('' != $opt['site_key'] && '' != $opt['secret_key']) {
         $captcha_code .= '<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-			<div class="g-recaptcha" data-sitekey="'.htmlentities($opt['site_key']).'">RECAP</div>
+			<div class="g-recaptcha" data-sitekey="'.htmlentities($opt['site_key']).'"></div>
 <span class="wpcf7-form-control-wrap grecaptcha"><input type="text" name="grecaptcha" value="dsk" size="1" class="wpcf7-form-control wpcf7-text" style="display:none;" /></span>';
     }
 
